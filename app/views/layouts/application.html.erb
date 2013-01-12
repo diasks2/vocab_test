@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RatchetRails</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-
-
-  <!-- Sets initial viewport load and disables zooming  -->
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-
-  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <!-- Set Apple icons for when prototype is saved to home screen -->
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="touch-icons/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="touch-icons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="touch-icons/apple-touch-icon-57x57.png">
- 
-</head>
-<body>
-   <%= yield %>
-
-</body>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <meta name="description" content="<%= description(yield(:description)) %>" />
+    <meta name="keywords" content="<%= keywords(yield(:keywords)) %>" />
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>

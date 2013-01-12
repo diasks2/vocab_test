@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'ratchet-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

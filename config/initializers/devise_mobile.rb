@@ -1,3 +1,3 @@
 ActionController::Responder.class_eval do
-  alias :to_mobile :to_html
+  alias :to_tablet :to_html
 end

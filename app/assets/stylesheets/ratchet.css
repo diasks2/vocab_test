@@ -814,6 +814,13 @@ select {
   font-size: 16px;
 }
 
+#full_width{
+  width:100%;
+  padding: 11px 0 13px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
 /* Active state for block level buttons */
 .button-block:active {
   padding: 12px 0;

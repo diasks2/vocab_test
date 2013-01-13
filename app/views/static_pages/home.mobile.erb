@@ -1,11 +1,10 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <%= render 'layouts/head' %>
-
 <body>
  <!-- Make sure all your bars are the first things in your <body> -->
   <header class="bar-title">
-    <h1 class="title">VocabTest</h1>
+    <h1 class="title">Vocabulary Assessment Test</h1>
      <a class="button" href="#">
     Login
   	</a>
@@ -13,19 +12,47 @@
 
   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
   <div class="content">
- 
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
     <div class="content-padded">
-      <p class="welcome">Thanks for downloading Ratchet. This is an example HTML page that's linked up to compiled Ratchet CSS and JS, has the proper meta tags and the HTML structure. Need some more help before you start filling this with your own content? Check out some Ratchet resorces:</p>
-    </div>
+      <p>
+        - Learn your true vocabulary level
+        - Receive personalized study lists
+        - Improve for vocabulary the SAT or GRE
 
-    <form>
+        Get started now with a free level assessment.
+
+
+        Welcome to the Vocabulary Assessment Test. Our test is built on top of a corpus of over <strong>460,000,000</strong> words and <strong>2,500,000</strong> collocates collected from 1990-2012 across a wide variety of mediums - TV, books, magazines, newspapers, and academic journals. The recency of our corpus ensures that you are studying the most useful, relevant vocabulary.
+        <br>
+        <br>
+        With the Vocabulary Assessment Test, we can mathematically converge on your true vocabulary level in under 15 minutes. Once we accurately determine your level, we can tell you your <em>Vocabulary Coverage Ratio</em>. Not only that, but we can give you personalized vocabulary study lists which include the 50 words you should be studying next in order to improve your <em>Vocabulary Coverage Ratio</em>. With BiF Vocab, you can even get specific vocabulary study lists tailored to fit your unique study needs (i.e. SAT®, GRE®, TOEIC®, TOEFL®, Business English and Medical English lists).
+        <br>
+      </p>  
+   
+   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+     <%= devise_error_messages! %>
 	  <div class="input-group">
-	    <input type="text" placeholder="Full name">
-	    <input type="email" placeholder="Email">
-	    <input type="text" placeholder="Username">
-	  </div>
-	</form>
+	   
+  <%= f.email_field :email, :placeholder => "Email" %>
+
+  <%= f.password_field :password, :placeholder => "Password" %>
+
+  <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+</div>
+  <%= f.submit "Sign up", :class => "button-main", :id => "full_width" %>
+
+<% end %>
+
+      
+        <p>
+    SAT® is a registered trademark of the College Board, which was not involved in the production of, and does not endorse, this product.<br>
+    GRE® is a registered trademark of the Educational Testing Service, which was not involved in the production of, and does not endorse, this product.
+  </p>
   </div>
+  </div>
+
 </body>
 </html>  

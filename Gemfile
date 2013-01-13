@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 gem 'ratchet-rails'
 gem 'mobile-fu'
 gem 'bootstrap-sass', '~> 2.2.1.1'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

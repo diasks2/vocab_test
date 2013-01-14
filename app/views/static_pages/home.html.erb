@@ -1,21 +1,26 @@
-<div class="well">
-  <h1> Tester</h1>
-  <h2>Sign up</h2>
+
+<div class="center hero-unit">
+  <h1>Welcome to the Sample App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+</div>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.email_field :email %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password %>
 
-  <div><%= f.submit "Sign up" %></div>
+
+  <%= f.submit "Sign up for a Free Assessment Test" %>
 <% end %>
 
-<%= render "devise/shared/links" %>
-</div>
+
